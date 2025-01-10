@@ -3,7 +3,7 @@
 <xacro:property name="total_width" value="0.19940" />
 <xacro:property name="wheel_width" value="0.0304" />
 <xacro:property name="wheel_radius" value="0.0325" />
-<xacro:property name="total_height" value="0.26225" />
+<xacro:property name="total_height" value="0.17225" />
 <xacro:property name="base_length" value="0.300" />
 <xacro:property name="centered_length" value="0.238" />
 <xacro:property name="base_x_offset" value="${(centered_length - base_length) / 2}" />

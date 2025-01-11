@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(mec_mobile_description)
+project(mec_mobile_gazebo)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,13 +7,12 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(urdf_tutorial REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 # Copy necessary files to designated locations in the project
 install (
-  DIRECTORY meshes urdf launch
+  DIRECTORY models launch worlds
   DESTINATION share/${PROJECT_NAME}
 )
 

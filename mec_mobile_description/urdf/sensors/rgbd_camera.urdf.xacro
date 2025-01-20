@@ -37,7 +37,7 @@
     iyz:=0.0
     izz:=0.003879257
     material_name:='aluminum'
-    material_color:='0.2 0.2 0.2 1'
+    material_color:='0.8 0.8 0.8 1'
     horizontal_fov:=1.5184
     image_width:=424
     image_height:=240

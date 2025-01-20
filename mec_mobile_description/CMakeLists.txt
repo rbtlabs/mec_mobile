@@ -13,7 +13,7 @@ find_package(urdf_tutorial REQUIRED)
 # find_package(<dependency> REQUIRED)
 # Copy necessary files to designated locations in the project
 install (
-  DIRECTORY meshes urdf launch
+  DIRECTORY meshes urdf launch rviz
   DESTINATION share/${PROJECT_NAME}
 )
 

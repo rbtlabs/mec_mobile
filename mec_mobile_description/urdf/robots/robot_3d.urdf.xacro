@@ -66,7 +66,7 @@
       topic_name="imu/data"/>
 
     <!-- Gazebo frictions -->
-  <gazebo reference='front_left_wheel'>
+  <gazebo reference='front_left_wheel_link'>
     <collision>
       <surface>
         <friction>
@@ -80,7 +80,7 @@
     </collision>
   </gazebo>
 
-  <gazebo reference='back_left_wheel'>
+  <gazebo reference='back_left_wheel_link'>
     <collision>
       <surface>
         <friction>
@@ -94,7 +94,7 @@
     </collision>
   </gazebo>
 
-  <gazebo reference='front_right_wheel'>
+  <gazebo reference='front_right_wheel_link'>
     <collision>
       <surface>
         <friction>
@@ -108,7 +108,7 @@
     </collision>
   </gazebo>
 
-  <gazebo reference='back_right_wheel'>
+  <gazebo reference='back_right_wheel_link'>
     <collision>
       <surface>
         <friction>

@@ -9,6 +9,9 @@
 
     <xacro:include filename="$(find mec_mobile_description)/urdf/mech/robot_3d_base.urdf.xacro"/>
     <xacro:include filename="$(find mec_mobile_description)/urdf/mech/mecanum_wheel.urdf.xacro"/>
+    <xacro:include filename="$(find mec_mobile_description)/urdf/sensors/rgbd_camera.urdf.xacro"/>
+    <xacro:include filename="$(find mec_mobile_description)/urdf/sensors/lidar.urdf.xacro"/>
+    <xacro:include filename="$(find mec_mobile_description)/urdf/sensors/imu.urdf.xacro"/>
     <xacro:include filename="$(find mec_mobile_description)/urdf/control/mec_mobile.gazebo"/>
 
     <xacro:robot_3d_base prefix="$(arg prefix)"/>

@@ -8,27 +8,27 @@ This repository is for creating a Mecanum Mobile Robot with URDF and Visualize i
 
 Use the main branch as the start package for Gazebo simulation
 
-## 1. Quick Start
+## Quick Start
 
 * Create a ros workspace
     ```bash   
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws/src
-mkdir mec_mobile
-cd mec_mobile
+    mkdir -p ~/ros2_ws/src
+    cd ~/ros2_ws/src
+    mkdir mec_mobile
+    cd mec_mobile
     ```
 * Download the package
     ```bash    
-git clone -b main https://github.com/roboticslabs/mec_mobile.git
+    git clone -b main https://github.com/roboticslabs/mec_mobile.git
     ```
 * Compile the package
     ```bash
-cd ~/ros2_ws
-sudo apt-get install ros-${ROS_DISTRO}-urdf-tutorial
-colcon build
+    cd ~/ros2_ws
+    sudo apt-get install ros-${ROS_DISTRO}-urdf-tutorial
+    colcon build
     ```
 * Try it
     ```bash
-source ~/ros2_ws/install/setup.bash
-ros2 launch urdf_tutorial display.launch.py model:=/home/robotlabs/ros2_ws/src/mec_mobile/mec_mobile_description/urdf/robots/robot_3d.urdf.xacro
+    source ~/ros2_ws/install/setup.bash
+    ros2 launch urdf_tutorial display.launch.py model:=/home/robotlabs/ros2_ws/src/mec_mobile/mec_mobile_description/urdf/robots/robot_3d.urdf.xacro
     ```

@@ -65,7 +65,7 @@
       update_rate="15.0"
       topic_name="imu/data"/>
 
-  <!-- 6 - Gazebo frictions -->
+  <!-- 2.3 add Gazebo frictions -->
   <gazebo reference='front_left_wheel_link'>
     <collision>
       <surface>

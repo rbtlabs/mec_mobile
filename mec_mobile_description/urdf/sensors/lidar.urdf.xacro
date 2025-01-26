@@ -40,6 +40,7 @@
     <xacro:property name="ixx_iyy" value="${(mass/12) * (3 * radius * radius + lidar_height * lidar_height)}" />
     <xacro:property name="izz" value="${(mass/2) * (radius * radius)}" />
 
+    <!-- 2.5.3 Lidar physical properties -->
     <link name="${prefix}${frame_id}">
       <visual>
         <origin xyz="${mesh_xyz_offset}" rpy="${mesh_rpy_offset}"/>
@@ -79,6 +80,7 @@
       <origin xyz="${xyz_offset}" rpy="${rpy_offset}"/>
     </joint>
 
+    <!-- 2.5.3 IMU gz sim properties -->
     <gazebo reference="${prefix}${frame_id}">
       <material>
         <ambient>${gazebo_material_ambient}</ambient>
@@ -114,5 +116,7 @@
         <gz_frame_id>${prefix}${frame_id}</gz_frame_id>
       </sensor>
     </gazebo>
+
   </xacro:macro>
+
 </robot>

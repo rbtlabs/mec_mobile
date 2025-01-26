@@ -9,7 +9,7 @@
 
     <xacro:include filename="$(find mec_mobile_description)/urdf/mech/robot_3d_base.urdf.xacro"/>
     <xacro:include filename="$(find mec_mobile_description)/urdf/mech/mecanum_wheel.urdf.xacro"/>
-    <xacro:include filename="$(find mec_mobile_description)/urdf/sensors/rgbd_camera.urdf.xacro"/>
+    <!-- <xacro:include filename="$(find mec_mobile_description)/urdf/sensors/rgbd_camera.urdf.xacro"/> -->
     <xacro:include filename="$(find mec_mobile_description)/urdf/sensors/lidar.urdf.xacro"/>
     <xacro:include filename="$(find mec_mobile_description)/urdf/sensors/imu.urdf.xacro"/>
     <xacro:include filename="$(find mec_mobile_description)/urdf/control/mec_mobile.gazebo"/>
@@ -40,11 +40,11 @@
       x_reflect="-1"
       y_reflect="-1"/>
 
-    <xacro:rgbd_camera
+    <!-- <xacro:rgbd_camera
       prefix="$(arg prefix)"
       camera_name="cam_1"
       xyz_offset="0.105 0 0.03"
-      rpy_offset="0 0 0"/>
+      rpy_offset="0 0 0"/> -->
 
     <xacro:lidar_sensor
       prefix="$(arg prefix)"
@@ -65,116 +65,114 @@
       update_rate="15.0"
       topic_name="imu/data"/>
 
-  <!-- 2.3 add Gazebo frictions -->
-  <gazebo reference='front_left_wheel_link'>
-    <collision>
-      <surface>
-        <friction>
-          <ode>
-            <mu>1.5</mu>
-            <mu2>0.0</mu2>
-            <fdir1 gz:expressed_in="base_footprint">1 -1 0</fdir1>
-          </ode>
-        </friction>
-      </surface>
-    </collision>
-  </gazebo>
+    <!-- 2.3 add Gazebo frictions -->
+    <gazebo reference='front_left_wheel_link'>
+      <collision>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.5</mu>
+              <mu2>0.0</mu2>
+              <fdir1 gz:expressed_in="base_footprint">1 -1 0</fdir1>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </gazebo>
 
-  <gazebo reference='back_left_wheel_link'>
-    <collision>
-      <surface>
-        <friction>
-          <ode>
-            <mu>1.5</mu>
-            <mu2>0.0</mu2>
-            <fdir1 gz:expressed_in="base_footprint">1 1 0</fdir1>
-          </ode>
-        </friction>
-      </surface>
-    </collision>
-  </gazebo>
+    <gazebo reference='back_left_wheel_link'>
+      <collision>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.5</mu>
+              <mu2>0.0</mu2>
+              <fdir1 gz:expressed_in="base_footprint">1 1 0</fdir1>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </gazebo>
 
-  <gazebo reference='front_right_wheel_link'>
-    <collision>
-      <surface>
-        <friction>
-          <ode>
-            <mu>1.5</mu>
-            <mu2>0.0</mu2>
-            <fdir1 gz:expressed_in="base_footprint">1 1 0</fdir1>
-          </ode>
-        </friction>
-      </surface>
-    </collision>
-  </gazebo>
+    <gazebo reference='front_right_wheel_link'>
+      <collision>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.5</mu>
+              <mu2>0.0</mu2>
+              <fdir1 gz:expressed_in="base_footprint">1 1 0</fdir1>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </gazebo>
 
-  <gazebo reference='back_right_wheel_link'>
-    <collision>
-      <surface>
-        <friction>
-          <ode>
-            <mu>1.5</mu>
-            <mu2>0.0</mu2>
-            <fdir1 gz:expressed_in="base_footprint">1 -1 0</fdir1>
-          </ode>
-        </friction>
-      </surface>
-    </collision>
-  </gazebo>
+    <gazebo reference='back_right_wheel_link'>
+      <collision>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.5</mu>
+              <mu2>0.0</mu2>
+              <fdir1 gz:expressed_in="base_footprint">1 -1 0</fdir1>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </gazebo>
 
-  <gazebo reference="base_link">
-    <mu1>0.000002</mu1>
-    <mu2>0.000002</mu2>
-    <!-- <material>Gazebo/Red</material> -->
-  </gazebo>
+    <gazebo reference="base_link">
+      <mu1>0.000002</mu1>
+      <mu2>0.000002</mu2>
+      <!-- <material>Gazebo/Red</material> -->
+    </gazebo>
+    
+    <!-- 2.4.1 Camera physical properties -->
+    <joint type="fixed" name="camera_joint">
+      <origin xyz="0.1 0 0.04" rpy="0 0 0"/>
+      <child link="camera_link"/>
+      <parent link="base_link"/>
+      <axis xyz="0 1 0" />
+    </joint>
 
+    <link name='camera_link'>
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia
+            ixx="1e-6" ixy="0" ixz="0"
+            iyy="1e-6" iyz="0"
+            izz="1e-6"/>
+      </inertial>
 
-  <!-- 2.4 Camera physical properties -->
-  <joint type="fixed" name="camera_joint">
-    <origin xyz="0.1 0 0.06" rpy="0 0 0"/>
-    <child link="camera_link"/>
-    <parent link="base_link"/>
-    <axis xyz="0 1 0" />
-  </joint>
+      <collision name='collision'>
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
+        <geometry>
+          <box size=".03 .03 .03"/>
+        </geometry>
+      </collision>
 
-  <link name='camera_link'>
-    <pose>0 0 0 0 0 0</pose>
-    <inertial>
-      <mass value="0.1"/>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <inertia
-          ixx="1e-6" ixy="0" ixz="0"
-          iyy="1e-6" iyz="0"
-          izz="1e-6"/>
-    </inertial>
+      <visual name='camera_link_visual'>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size=".03 .03 .03"/>
+        </geometry>
+      </visual>
+    </link>
 
-    <collision name='collision'>
-      <origin xyz="0 0 0" rpy="0 0 0"/> 
-      <geometry>
-        <box size=".03 .03 .03"/>
-      </geometry>
-    </collision>
+    <gazebo reference="camera_link">
+      <material>Gazebo/Red</material>
+    </gazebo>
 
-    <visual name='camera_link_visual'>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size=".03 .03 .03"/>
-      </geometry>
-    </visual>
-  </link>
+    <joint type="fixed" name="camera_optical_joint">
+      <origin xyz="0 0 0" rpy="-1.5707 0 -1.5707"/>
+      <child link="camera_link_optical"/>
+      <parent link="camera_link"/>
+    </joint>
 
-  <gazebo reference="camera_link">
-    <material>Gazebo/Red</material>
-  </gazebo>
-
-  <joint type="fixed" name="camera_optical_joint">
-    <origin xyz="0 0 0" rpy="-1.5707 0 -1.5707"/>
-    <child link="camera_link_optical"/>
-    <parent link="camera_link"/>
-  </joint>
-
-  <link name="camera_link_optical">
-  </link> 
-
+    <link name="camera_link_optical">
+    </link>
     
 </robot>

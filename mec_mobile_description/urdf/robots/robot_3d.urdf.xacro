@@ -65,7 +65,7 @@
       update_rate="15.0"
       topic_name="imu/data"/>
 
-    <!-- 2.3 add Gazebo frictions -->
+    <!-- 2.4 add Gazebo frictions -->
     <gazebo reference='front_left_wheel_link'>
       <collision>
         <surface>
@@ -128,7 +128,7 @@
       <!-- <material>Gazebo/Red</material> -->
     </gazebo>
     
-    <!-- 2.4.1 Camera physical properties -->
+    <!-- 2.5.1 Camera physical properties -->
     <joint type="fixed" name="camera_joint">
       <origin xyz="0.1 0 0.04" rpy="0 0 0"/>
       <child link="camera_link"/>

@@ -28,7 +28,7 @@
         <xacro:property name="iyy" value="${(mass/12.0) * (length*length + height*height)}" />
         <xacro:property name="izz" value="${(mass/12.0) * (length*length + width*width)}" />
 
-        <!-- 2.4.2 IMU physical properties -->
+        <!-- 2.5.2 IMU physical properties -->
         <link name="${prefix}${frame_id}_link">
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -60,7 +60,7 @@
         </joint>
 
 
-        <!-- 2.4.2 IMU gz sim properties -->
+        <!-- 2.5.2 IMU gz sim properties -->
         <gazebo reference="${prefix}${frame_id}_link">
             <material>
                 <ambient>${gazebo_material_ambient}</ambient>
@@ -75,5 +75,7 @@
                 <gz_frame_id>${prefix}${frame_id}_link</gz_frame_id>
             </sensor>
         </gazebo>
+
     </xacro:macro>
+
 </robot>

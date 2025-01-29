@@ -48,6 +48,8 @@
     visualize:=true
     enable_collision:=false">
 
+    <!-- 2.5.5 RGBD camera physical properties -->
+
     <link name="${prefix}${camera_name}_link">
       <visual>
         <origin xyz="${mesh_xyz_offset}" rpy="${mesh_rpy_offset}"/>
@@ -136,6 +138,7 @@
     </joint>
     <link name="${prefix}${camera_name}_color_optical_frame"/>
 
+    <!-- 2.5.5 RGBD camera gz sim properties -->
     <gazebo reference="${prefix}${camera_name}_link">
       <sensor name="${prefix}${camera_name}" type="rgbd_camera">
         <camera>
@@ -158,4 +161,5 @@
     </gazebo>
 
   </xacro:macro>
+  
 </robot>

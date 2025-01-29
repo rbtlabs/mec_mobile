@@ -130,7 +130,7 @@
     
     <!-- 2.5.1 Camera physical properties -->
     <joint type="fixed" name="camera_joint">
-      <origin xyz="0.1 0 0.04" rpy="0 0 0"/>
+      <origin xyz="0.092 0 0.05" rpy="0 0 0"/>
       <child link="camera_link"/>
       <parent link="base_link"/>
       <axis xyz="0 1 0" />
@@ -157,7 +157,7 @@
       <visual name='camera_link_visual'>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <box size=".03 .03 .03"/>
+          <box size=".02 .02 .02"/>
         </geometry>
       </visual>
     </link>

@@ -92,7 +92,7 @@
         <update_rate>${update_rate}</update_rate>
         <always_on>${always_on}</always_on>
         <visualize>${visualize}</visualize>
-        <ray>
+        <lidar>
           <scan>
             <horizontal>
               <samples>${ray_count}</samples>
@@ -100,11 +100,16 @@
               <min_angle>${min_angle}</min_angle>
               <max_angle>${max_angle}</max_angle>
             </horizontal>
-            <vertical>
+            <!-- <vertical>
               <samples>1</samples>
               <resolution>1</resolution>
               <min_angle>0</min_angle>
               <max_angle>0</max_angle>
+            </vertical> -->
+            <vertical>
+              <samples>32</samples>
+              <min_angle>-0.5353</min_angle>
+              <max_angle>0.1862</max_angle>
             </vertical>
           </scan>
           <range>
@@ -112,7 +117,7 @@
             <max>${max_range}</max>
             <resolution>${range_resolution}</resolution>
           </range>
-        </ray>
+        </lidar>
         <gz_frame_id>${prefix}${frame_id}</gz_frame_id>
       </sensor>
     </gazebo>

@@ -52,7 +52,7 @@
     </plugin>
   </gazebo>
 
-  <!-- 2.4.1 Camera gz sim properties -->
+  <!-- 2.5.1 Camera gz sim properties -->
   <gazebo reference="camera_link">
     <sensor name="camera" type="camera">
       <camera>
@@ -83,5 +83,6 @@
       <topic>camera/image</topic>
     </sensor>
   </gazebo>
+  <!-- 2.5.1 End -->
 
 </robot>

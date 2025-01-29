@@ -9,7 +9,7 @@
 
     <xacro:include filename="$(find mec_mobile_description)/urdf/mech/robot_3d_base.urdf.xacro"/>
     <xacro:include filename="$(find mec_mobile_description)/urdf/mech/mecanum_wheel.urdf.xacro"/>
-    <!-- <xacro:include filename="$(find mec_mobile_description)/urdf/sensors/rgbd_camera.urdf.xacro"/> -->
+    <xacro:include filename="$(find mec_mobile_description)/urdf/sensors/rgbd_camera.urdf.xacro"/>
     <xacro:include filename="$(find mec_mobile_description)/urdf/sensors/lidar.urdf.xacro"/>
     <xacro:include filename="$(find mec_mobile_description)/urdf/sensors/imu.urdf.xacro"/>
     <xacro:include filename="$(find mec_mobile_description)/urdf/control/mec_mobile.gazebo"/>
@@ -40,11 +40,11 @@
       x_reflect="-1"
       y_reflect="-1"/>
 
-    <!-- <xacro:rgbd_camera
+    <xacro:rgbd_camera
       prefix="$(arg prefix)"
       camera_name="cam_1"
       xyz_offset="0.105 0 0.03"
-      rpy_offset="0 0 0"/> -->
+      rpy_offset="0 0 0"/>
 
     <xacro:lidar_sensor
       prefix="$(arg prefix)"
@@ -174,5 +174,6 @@
 
     <link name="camera_link_optical">
     </link>
+    <!-- 2.5.1 End -->
     
 </robot>

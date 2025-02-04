@@ -12,6 +12,8 @@ def generate_launch_description():
     pkg_urdf_path = get_package_share_directory('mec_mobile_description')
     pkg_gazebo_path = get_package_share_directory('mec_mobile_gazebo')
 
+    pkg_mec_mobile_navigation = get_package_share_directory('mec_mobile_navigation')
+
     gazebo_models_path, ignore_last_dir = os.path.split(pkg_urdf_path)
     #os.environ["GZ_SIM_RESOURCE_PATH"] += os.pathsep + gazebo_models_path
 
@@ -36,6 +38,12 @@ def generate_launch_description():
         "urdf","robots",
         LaunchConfiguration('model')  # Replace with your URDF or Xacro file
     ])
+
+    gz_bridge_params_path = os.path.join(
+        get_package_share_directory('mec_mobile_navigation'),
+        'config',
+        'gz_bridge.yaml'
+    )
 
     world_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -92,18 +100,8 @@ def generate_launch_description():
         package="ros_gz_bridge",
         executable="parameter_bridge",
         arguments=[
-            "/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock",
-            "/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
-            "/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry",
-            "/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model",
-            "/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V",
-            "/camera/image@sensor_msgs/msg/Image@gz.msgs.Image",
-            "/camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo",
-            "/imu@sensor_msgs/msg/Imu@gz.msgs.IMU", 
-            "/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan",             
-            "/scan/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked", 
-            "/cam_1/depth_image@sensor_msgs/msg/Image@gz.msgs.Image",
-            "/cam_1/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked",   
+            '--ros-args', '-p',
+            f'config_file:={gz_bridge_params_path}' 
         ],
         output="screen",
         parameters=[

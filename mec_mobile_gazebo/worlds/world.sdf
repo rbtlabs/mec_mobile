@@ -1,52 +1,18 @@
-<?xml version="1.0" ?>
-
-<sdf version="1.6">
-  <world name="empty">
-    <physics name="1ms" type="ignored">
+<sdf version='1.10'>
+  <world name='empty'>
+    <physics name='1ms' type='ignored'>
       <max_step_size>0.001</max_step_size>
-      <real_time_factor>1.0</real_time_factor>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
     </physics>
-    <plugin
-      filename="gz-sim-physics-system"
-      name="gz::sim::systems::Physics">
-    </plugin>
-    <plugin
-      filename="gz-sim-user-commands-system"
-      name="gz::sim::systems::UserCommands">
-    </plugin>
-    <plugin
-      filename="gz-sim-scene-broadcaster-system"
-      name="gz::sim::systems::SceneBroadcaster">
-    </plugin>
-    <plugin
-      filename="gz-sim-contact-system"
-      name="gz::sim::systems::Contact">
-    </plugin>
-
-    <plugin
-      filename="gz-sim-sensors-system"
-      name="gz::sim::systems::Sensors">
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
       <render_engine>ogre2</render_engine>
     </plugin>
-    <plugin
-      filename="gz-sim-imu-system"
-      name="gz::sim::systems::Imu">
-    </plugin>
-
-    <light type="directional" name="sun">
-      <cast_shadows>true</cast_shadows>
-      <pose>0 0 10 0 0 0</pose>
-      <diffuse>0.8 0.8 0.8 1</diffuse>
-      <specular>0.2 0.2 0.2 1</specular>
-      <attenuation>
-        <range>1000</range>
-        <constant>0.9</constant>
-        <linear>0.01</linear>
-        <quadratic>0.001</quadratic>
-      </attenuation>
-      <direction>-0.5 0.1 -0.9</direction>
-    </light>
-
+    <plugin name='gz::sim::systems::Imu' filename='gz-sim-imu-system'/>
     <gravity>0 0 -9.8000000000000007</gravity>
     <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
@@ -55,11 +21,10 @@
       <background>0.699999988 0.699999988 0.699999988 1</background>
       <shadows>true</shadows>
     </scene>
-
-    <model name="ground_plane">
+    <model name='ground_plane'>
       <static>true</static>
-      <link name="link">
-        <collision name="collision">
+      <link name='link'>
+        <collision name='collision'>
           <geometry>
             <plane>
               <normal>0 0 1</normal>
@@ -76,7 +41,7 @@
             <contact/>
           </surface>
         </collision>
-        <visual name="visual">
+        <visual name='visual'>
           <geometry>
             <plane>
               <normal>0 0 1</normal>
@@ -84,13 +49,132 @@
             </plane>
           </geometry>
           <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <specular>0.8 0.8 0.8 1</specular>
+            <ambient>0.800000012 0.800000012 0.800000012 1</ambient>
+            <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+            <specular>0.800000012 0.800000012 0.800000012 1</specular>
           </material>
         </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
       </link>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
     </model>
-
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
+      <name>nist_maze_wall_120</name>
+      <pose>3.500194787979126 0.23359900712966919 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
+      <name>nist_maze_wall_120_0</name>
+      <pose>0.55775178312215412 0.23700515675109912 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
+      <name>nist_maze_wall_120_1</name>
+      <pose>-2.3677970179523875 0.24645153372856043 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
+      <name>nist_maze_wall_120_2</name>
+      <pose>3.5200865090295048 -8.2388156179689531 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
+      <name>nist_maze_wall_120_3</name>
+      <pose>0.56549686035177915 -8.2467648225739651 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
+      <name>nist_maze_wall_120_4</name>
+      <pose>-2.3681797162680551 -8.2544366856634142 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
+      <name>nist_maze_wall_120_5</name>
+      <pose>6.0994014739990234 -1.5353339910507202 0 0 0 1.5700000042340219</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
+      <name>nist_maze_wall_120_5_1</name>
+      <pose>10.162989131829523 3.988061079102418 0 0 0 1.5700000841906603</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
+      <name>nist_maze_wall_120_5_2</name>
+      <pose>10.154943304459902 1.0311892009463999 0 0 0 1.5700000841906603</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
+      <name>nist_maze_wall_120_5_3</name>
+      <pose>10.152925969603256 -1.9336369865301308 0 0 0 1.5700000841906603</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
+      <name>nist_maze_wall_120_5_4</name>
+      <pose>0.95662188637031775 3.9433657197461081 0 0 0 1.5700000841906603</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
+      <name>nist_maze_wall_120_5_5</name>
+      <pose>0.94719756250117015 1.0309010957460973 0 0 0 1.5700000841906603</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/Sofa</uri>
+      <name>Sofa</name>
+      <pose>-3.1086053821535606 4.0736955014647362 0.00011990061410731364 7.8247314222776772e-09 5.380270426149201e-09 1.6201394625637979e-11</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/Table</uri>
+      <name>Table</name>
+      <pose>-0.47356671228541369 -2.1649002497828573 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/dumpster</uri>
+      <name>Dumpster</name>
+      <pose>3.5524714377709055 4.1681146441410313 0.0013765659918935282 -6.1375696278466861e-08 -3.8407848316582548e-08 -8.5652453595490297e-15</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/cardboard_box</uri>
+      <name>cardboard_box</name>
+      <pose>1.8746377107091465 4.644005466377882 0.14999943493130527 1.2642492757207745e-19 -5.7627664156819206e-19 5.2001615265641397e-21</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/first_2015_trash_can</uri>
+      <name>first_2015_trash_can</name>
+      <pose>1.871824026104721 -0.29980108142421835 -2.6498350109364688e-06 -4.8691872295368032e-07 1.1942776831939006e-05 -0.0058451011481388373</pose>
+    </include>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
   </world>
 </sdf>

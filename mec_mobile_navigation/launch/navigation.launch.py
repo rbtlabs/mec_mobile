@@ -11,9 +11,6 @@ def generate_launch_description():
 
     pkg_mec_mobile_navigation = get_package_share_directory('mec_mobile_navigation')
 
-    gazebo_models_path, ignore_last_dir = os.path.split(pkg_mec_mobile_navigation)
-    os.environ["GZ_SIM_RESOURCE_PATH"] += os.pathsep + gazebo_models_path
-
     rviz_launch_arg = DeclareLaunchArgument(
         'rviz', default_value='true',
         description='Open RViz'
@@ -27,13 +24,6 @@ def generate_launch_description():
     sim_time_arg = DeclareLaunchArgument(
         'use_sim_time', default_value='True',
         description='Flag to enable use_sim_time'
-    )
-
-    # Generate path to config file
-    interactive_marker_config_file_path = os.path.join(
-        get_package_share_directory('interactive_marker_twist_server'),
-        'config',
-        'linear.yaml'
     )
 
     # Path to the Slam Toolbox launch file
@@ -78,14 +68,6 @@ def generate_launch_description():
         ]
     )
 
-    interactive_marker_twist_server_node = Node(
-        package='interactive_marker_twist_server',
-        executable='marker_server',
-        name='twist_server_node',
-        parameters=[interactive_marker_config_file_path],
-        output='screen',
-    )
-
     localization_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(nav2_localization_launch_path),
         launch_arguments={
@@ -109,7 +91,6 @@ def generate_launch_description():
     launchDescriptionObject.add_action(rviz_config_arg)
     launchDescriptionObject.add_action(sim_time_arg)
     launchDescriptionObject.add_action(rviz_node)
-    #launchDescriptionObject.add_action(interactive_marker_twist_server_node)
     launchDescriptionObject.add_action(localization_launch)
     launchDescriptionObject.add_action(navigation_launch)
 

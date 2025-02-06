@@ -105,37 +105,37 @@
     <include>
       <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
       <name>nist_maze_wall_120_5</name>
-      <pose>6.0994014739990234 -1.5353339910507202 0 0 0 1.5700000042340219</pose>
+      <pose>6.0994014739990234 -1.5353339910507235 0 0 0 1.5700000042340219</pose>
     </include>
     <include>
       <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
       <name>nist_maze_wall_120_5_1</name>
-      <pose>10.162989131829523 3.988061079102418 0 0 0 1.5700000841906603</pose>
+      <pose>10.162989131829534 3.98806107910241 0 0 0 1.5700000841906609</pose>
     </include>
     <include>
       <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
       <name>nist_maze_wall_120_5_2</name>
-      <pose>10.154943304459902 1.0311892009463999 0 0 0 1.5700000841906603</pose>
+      <pose>10.154943304459913 1.0311892009463919 0 0 0 1.5700000841906609</pose>
     </include>
     <include>
       <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
       <name>nist_maze_wall_120_5_3</name>
-      <pose>10.152925969603256 -1.9336369865301308 0 0 0 1.5700000841906603</pose>
+      <pose>10.152925969603267 -1.9336369865301388 0 0 0 1.5700000841906609</pose>
     </include>
     <include>
       <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
       <name>nist_maze_wall_120_5_4</name>
-      <pose>0.95662188637031775 3.9433657197461081 0 0 0 1.5700000841906603</pose>
+      <pose>0.95662188637032841 3.9433657197461001 0 0 0 1.5700000841906609</pose>
     </include>
     <include>
       <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
       <name>nist_maze_wall_120_5_5</name>
-      <pose>0.94719756250117015 1.0309010957460973 0 0 0 1.5700000841906603</pose>
+      <pose>0.94719756250118081 1.0309010957460893 0 0 0 1.5700000841906609</pose>
     </include>
     <include>
       <uri>file:///home/robotlabs/gazebo_models/Sofa</uri>
       <name>Sofa</name>
-      <pose>-3.1086053821535606 4.0736955014647362 0.00011990061410731364 7.8247314222776772e-09 5.380270426149201e-09 1.6201394625637979e-11</pose>
+      <pose>-3.1086053821535606 4.0736955014647362 0.00011990061410731364 7.8247314222776772e-09 5.3802704261492018e-09 1.6201394625637982e-11</pose>
     </include>
     <include>
       <uri>file:///home/robotlabs/gazebo_models/Table</uri>
@@ -145,7 +145,7 @@
     <include>
       <uri>file:///home/robotlabs/gazebo_models/dumpster</uri>
       <name>Dumpster</name>
-      <pose>3.5524714377709055 4.1681146441410313 0.0013765659918935282 -6.1375696278466861e-08 -3.8407848316582548e-08 -8.5652453595490297e-15</pose>
+      <pose>3.5524714377709055 4.1681146441410313 0.0013765659918935282 -6.1375696278466901e-08 -3.8407848316582607e-08 -8.5652453595490407e-15</pose>
     </include>
     <include>
       <uri>file:///home/robotlabs/gazebo_models/cardboard_box</uri>
@@ -155,7 +155,12 @@
     <include>
       <uri>file:///home/robotlabs/gazebo_models/first_2015_trash_can</uri>
       <name>first_2015_trash_can</name>
-      <pose>1.871824026104721 -0.29980108142421835 -2.6498350109364688e-06 -4.8691872295368032e-07 1.1942776831939006e-05 -0.0058451011481388373</pose>
+      <pose>1.871824026104721 -0.29980108142421835 -2.6498350109364688e-06 -4.8691872295368042e-07 1.1942776831939009e-05 -0.005845101148138839</pose>
+    </include>
+    <include>
+      <uri>file:///home/robotlabs/gazebo_models/nist_maze_wall_120</uri>
+      <name>nist_maze_wall_120_5_5_1</name>
+      <pose>0.95387040001446621 -1.9163620943308839 0 0 0 1.5700000042340219</pose>
     </include>
     <light name='sun' type='directional'>
       <pose>0 0 10 0 0 0</pose>

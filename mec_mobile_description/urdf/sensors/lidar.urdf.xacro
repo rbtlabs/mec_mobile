@@ -100,17 +100,17 @@
               <min_angle>${min_angle}</min_angle>
               <max_angle>${max_angle}</max_angle>
             </horizontal>
-            <!-- <vertical>
+            <vertical>
               <samples>1</samples>
               <resolution>1</resolution>
               <min_angle>0</min_angle>
               <max_angle>0</max_angle>
-            </vertical> -->
-            <vertical>
+            </vertical>
+            <!-- <vertical>
               <samples>32</samples>
               <min_angle>-0.5353</min_angle>
               <max_angle>0.1862</max_angle>
-            </vertical>
+            </vertical> -->
           </scan>
           <range>
             <min>${min_range}</min>

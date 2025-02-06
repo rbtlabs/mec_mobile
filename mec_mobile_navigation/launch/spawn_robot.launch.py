@@ -11,11 +11,15 @@ def generate_launch_description():
 
     pkg_urdf_path = get_package_share_directory('mec_mobile_description')
     pkg_gazebo_path = get_package_share_directory('mec_mobile_gazebo')
-
     pkg_mec_mobile_navigation = get_package_share_directory('mec_mobile_navigation')
-
     gazebo_models_path, ignore_last_dir = os.path.split(pkg_urdf_path)
     #os.environ["GZ_SIM_RESOURCE_PATH"] += os.pathsep + gazebo_models_path
+
+    gz_bridge_params_path = os.path.join(
+        get_package_share_directory('mec_mobile_navigation'),
+        'config',
+        'gz_bridge.yaml'
+    )
 
     rviz_launch_arg = DeclareLaunchArgument(
         'rviz', default_value='true',
@@ -38,12 +42,6 @@ def generate_launch_description():
         "urdf","robots",
         LaunchConfiguration('model')  # Replace with your URDF or Xacro file
     ])
-
-    gz_bridge_params_path = os.path.join(
-        get_package_share_directory('mec_mobile_navigation'),
-        'config',
-        'gz_bridge.yaml'
-    )
 
     world_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -101,7 +99,7 @@ def generate_launch_description():
         executable="parameter_bridge",
         arguments=[
             '--ros-args', '-p',
-            f'config_file:={gz_bridge_params_path}' 
+            f'config_file:={gz_bridge_params_path}'
         ],
         output="screen",
         parameters=[
@@ -109,6 +107,17 @@ def generate_launch_description():
         ]
     )
 
+    ekf_node = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_filter_node',
+        output='screen',
+        parameters=[
+            os.path.join(pkg_mec_mobile_navigation, 'config', 'ekf.yaml'),
+            {'use_sim_time': True},
+             ]
+    )
+    
     # joint_state_publisher_gui_node = Node(
     #     package='joint_state_publisher_gui',
     #     executable='joint_state_publisher_gui',
@@ -116,13 +125,14 @@ def generate_launch_description():
 
     launchDescriptionObject = LaunchDescription()
 
-    launchDescriptionObject.add_action(rviz_launch_arg)
+    # launchDescriptionObject.add_action(rviz_launch_arg)
     launchDescriptionObject.add_action(world_arg)
     launchDescriptionObject.add_action(model_arg)
     launchDescriptionObject.add_action(world_launch)
-    launchDescriptionObject.add_action(rviz_node)
+    # launchDescriptionObject.add_action(rviz_node)
     launchDescriptionObject.add_action(spawn_urdf_node)
     launchDescriptionObject.add_action(robot_state_publisher_node)
     launchDescriptionObject.add_action(gz_bridge_node)
+    launchDescriptionObject.add_action(ekf_node)
 
     return launchDescriptionObject

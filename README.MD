@@ -14,8 +14,6 @@ Use the main branch as the start package for Gazebo simulation
     ```bash   
     mkdir -p ~/ros2_ws/src
     cd ~/ros2_ws/src
-    mkdir mec_mobile
-    cd mec_mobile
     ```
 * Download the package
     ```bash    

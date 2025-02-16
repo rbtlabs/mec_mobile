@@ -30,4 +30,4 @@ Use the main branch as the start package for Gazebo simulation
     source ~/ros2_ws/install/setup.bash
     ros2 launch urdf_tutorial display.launch.py model:=/home/robotlabs/ros2_ws/src/mec_mobile/mec_mobile_description/urdf/robots/robot_3d.urdf.xacro
     ```
-    Note: update the model path according to your own setting.
+    Note: update the model's path according to your own setting.
